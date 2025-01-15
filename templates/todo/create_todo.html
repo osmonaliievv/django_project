@@ -1,0 +1,15 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/create_todo.css' %}">
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+
+<div class="form-container">
+    <h1 class="form-title">Добавить в корзину</h1>
+    <form action="/create_todo/" method="post" enctype="multipart/form-data" class="todo-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-button">Добавить</button>
+    </form>
+</div>
+
+{% include 'components/footer.html' %}

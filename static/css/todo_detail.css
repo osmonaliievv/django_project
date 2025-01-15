@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.detail-container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.task-title {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.chosen-book {
+    font-size: 16px;
+    color: #666666;
+    margin: 10px 0;
+}
+
+.date-created, .date-updated {
+    font-size: 14px;
+    color: #999999;
+}
+
+.checked {
+    font-weight: bold;
+    color: #6c63ff;
+}
+
+.date {
+    font-size: 14px;
+    color: #999999;
+}

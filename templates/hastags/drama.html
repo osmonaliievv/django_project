@@ -1,0 +1,22 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<link rel="stylesheet" href="{% static 'css/hastags.css' %}">
+
+<div class="button-container">
+        <a href="{% url 'all_products' %}">Все продукты</a>
+    <a href="{% url 'fairy_tale' %}">Сказки</a>
+    <a href="{% url 'fantasy' %}">Фантастика</a>
+    <a href="{% url 'drama' %}">Драмма</a>
+</div>
+
+<div class="product-grid">
+    {% for i in drama %}
+    <div class="product-card">
+        <h3>{{ i.name }}</h3>
+        <p>{{ i.price }} сом</p>
+    </div>
+    {% endfor %}
+</div>
+<!-- Футер -->
+{% include 'components/footer.html' %}

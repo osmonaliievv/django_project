@@ -1,0 +1,14 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/todo_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<div class="detail-container">
+    <h1 class="task-title">{{ todo_id.task }}</h1>
+    <p class="status checked">Статус: {{ todo_id.status }}</p>
+    <p class="chosen-book">Выбранный фильм: {{ todo_id.choise_book }}</p>
+    <p class="chosen-book">Категория: {{ todo_id.category }}</p>
+    <p class="date-created date">Создано: {{ todo_id.created_at }}</p>
+    <p class="date-updated date">Обновлено: {{ todo_id.updated_at }}</p>
+</div>
+
+{% include 'components/footer.html' %}

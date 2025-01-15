@@ -1,0 +1,28 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/todo_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+
+<div class="todo-container">
+    <ul class="todo-list">
+        {% for i in todo_list %}
+        <li class="todo-item">
+            <h1 class="todo-title">{{ i.choise_book }}</h1>
+            <p class="todo-status">{{ i.status }}</p>
+            <div class="todo-actions">
+                <button class="todo-button">
+                    <a href="/todo_list/{{ i.id }}/" class="todo-link">Подробнее</a>
+                </button>
+                <button class="todo-button">
+                    <a href="/todo_list/{{ i.id }}/delete/" class="todo-link">Удалить</a>
+                </button>
+                <button class="todo-button">
+                    <a href="/todo_list/{{ i.id }}/update/" class="todo-link">Изменить</a>
+                </button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% include 'components/footer.html' %}
