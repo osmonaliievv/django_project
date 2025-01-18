@@ -2,24 +2,56 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
 from . import models
+from django.views import generic
 
 
-def book_list(request):
-    if request.method == 'GET':
-        book_list = models.Books.objects.all().order_by('-id')
-        print(book_list)
-        context = {'book_list': book_list}
-        return render(request, template_name='book.html', context=context)
+# todo --------------- SEARCH ----------------
+class SearchView(generic.ListView):
+    template_name = 'book.html'
+    context_object_name = 'book_list'
+
+    def get_queryset(self):
+        return models.Books.objects.filter(title__icontains=self.request.GET.get('q'))
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
 
 
+# todo ------------------- BOOK_LIST --------------------
+class BookListView(generic.ListView):
+    template_name = 'book.html'
+    context_object_name = 'book_list'
+    model = models.Books
 
-def book_detail(request, id):
-    if request.method == 'GET':
-        book_id = get_object_or_404(models.Books, id=id)
-        context = {'book_id': book_id}
-        return render(request, template_name='book_detail.html', context=context)
+    def get_queryset(self):
+        return self.model.objects.all().order_by('-id')
 
 
+# def book_list(request):
+#     if request.method == 'GET':
+#         book_list = models.Books.objects.all().order_by('-id')
+#         context = {'book_list': book_list}
+#         return render(request, template_name='book.html', context=context)
+
+# todo ------------------- BOOK_DETAIL --------------------
+class BookDetailView(generic.DetailView):
+    template_name = 'book_detail.html'
+    context_object_name = 'book_id'
+
+    def get_object(self, **kwargs):
+        book_id = self.kwargs.get('id')
+        return get_object_or_404(models.Books, id=book_id)
+
+
+# def book_detail(request, id):
+#     if request.method == 'GET':
+#         book_id = get_object_or_404(models.Books, id=id)
+#         context = {'book_id': book_id}
+#         return render(request, template_name='book_detail.html', context=context)
+
+# todo --------------------------------------------------
 def about_me(request):
     if request.method == "GET":
         return HttpResponse(

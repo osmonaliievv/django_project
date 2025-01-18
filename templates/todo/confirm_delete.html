@@ -1,0 +1,12 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+
+<form method="post" style="margin: 270px 100px">
+    <h1 style="color: white">Вы уверены, что хотите удалить эту карточку?</h1>
+    {% csrf_token %}
+    <button type="submit">Да</button>
+</form>
+
+{% include 'components/footer.html' %}
+

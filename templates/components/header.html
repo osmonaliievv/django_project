@@ -54,9 +54,10 @@
                     <a class="nav-link enable" href="#" style="color: yellow;">Итоговая Контрольная работа</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                <button class="btn btn-outline-success" type="submit" style="color: yellow; border-color: yellow;">
+            <form action="{% url 'search' %}" method="GET" class="d-flex" role="search">
+                <input class="form-control me-2" placeholder="Поиск" aria-label="Поиск" name="q"
+                       type="text">
+                <button class="btn btn-outline-success" type="submit" style="color: yellow; border-color: yellow;" ь>
                     Поиск
                 </button>
             </form>
