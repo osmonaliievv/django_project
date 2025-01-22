@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'library',
     'hastags',
     'todo',
+    'parser_librusec',
 ]
 
 MIDDLEWARE = [

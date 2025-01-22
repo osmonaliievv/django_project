@@ -1,0 +1,17 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<link rel="stylesheet" href="{% static 'css/mybook_list.css' %}">
+
+<body class="body">
+{% for i in mybook %}
+<div class="book">
+    <div class="book_img"><img src="{{ i.img.url }}" alt="Image of {{ i.title }}"></div>
+
+    <h3 class="book-title">{{ i.title }}</h3>
+    <p class="book-description">{{ i.description }}</p>
+</div>
+{% endfor %}
+
+<!-- Футер -->
+{% include 'components/footer.html' %}
