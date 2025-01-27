@@ -3,14 +3,16 @@
     {% for i in person %}
     <li>
         <p>Имя: {{ i.username }}</p>
-        <p>Опыт: {{ i.experience }}год</p>
+        <p>Опыт: {{ i.experience }} год</p>
         {% if i.salary %}
         <p>Зарплата: {{ i.salary }}</p>
         {% else %}
         <p>Зарплата не указана</p>
         {% endif %}
     </li>
+    {% endfor %}
 </ul>
+
 <form action="{% url 'users:login' %}" method="POST">
     {% csrf_token %}
     <button>Выйти из аккаунта</button>
