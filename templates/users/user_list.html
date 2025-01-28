@@ -1,3 +1,6 @@
+{% load static %}
+{% include 'components/header.html  ' %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
 <h1>Добро пожаловать</h1>
 <ul>
     {% for i in person %}
@@ -17,3 +20,5 @@
     {% csrf_token %}
     <button>Выйти из аккаунта</button>
 </form>
+<!-- Футер -->
+{% include 'components/footer.html' %}

@@ -54,6 +54,19 @@
                 <li class="nav-item">
                     <a class="nav-link enable" href="{% url 'mybook_form' %}" style="color: yellow;">Парсинг</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: yellow;">
+                        Мои рецепты
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'create_ingredient' %}">Добавить ингредиент</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'recipe_list' %}">Рецепты</a></li>
+                    </ul>
+                </li>
             </ul>
             <form action="{% url 'search' %}" method="GET" class="d-flex" role="search">
                 <input class="form-control me-2" placeholder="Поиск" aria-label="Поиск" name="q"

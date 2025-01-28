@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'todo',
     'parser_librusec',
     'users',
+    'recipe',
 ]
 
 MIDDLEWARE = [

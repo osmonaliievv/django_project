@@ -10,7 +10,7 @@ class TodoModel(models.Model):
     )
     status = models.TextField(choices=ITEM_CONDITION_CHOICES)
     choise_book = models.ForeignKey(Books, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(max_length=500, blank=True, null=True)
+    quantity = models.PositiveIntegerField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.CharField(max_length=100, blank=True, null=True)

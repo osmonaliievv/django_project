@@ -1,0 +1,20 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipes.css' %}"> 
+<div class="recipe_cont">
+    <h1>Список рецептов</h1>
+    <a href="{% url 'create_recipe' %}" class="btn btn-primary">Добавить рецепт</a>
+    <ul class="recipe-list">
+        {% for recipe in recipes %}
+        <li class="recipe-item">
+            <span class="recipe-title">{{ recipe.title }}</span>
+            <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-info">Просмотреть</a>
+            <a href="{% url 'delete_recipe' recipe.id %}" class="btn btn-danger">Удалить</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% include 'components/footer.html' %}

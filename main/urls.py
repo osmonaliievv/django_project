@@ -10,6 +10,7 @@ urlpatterns = [
     path('', include('todo.urls')),
     path('', include('parser_librusec.urls')),
     path('', include('users.urls')),
+    path('', include('recipe.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL,
                       document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,20 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipe_detail.css' %}">
+<div class="recipe-card">
+    <h1 class="recipe-title">{{ recipe.title }}</h1>
+    <p class="recipe-description">{{ recipe.description }}</p>
+
+    <h2 class="ingredients-title">Ингредиенты:</h2>
+    <ul class="ingredients-list">
+        {% for ingredient in ingredients %}
+        <li class="ingredient-item">
+            {{ ingredient.name }}: {{ ingredient.quantity }} {{ ingredient.get_unit_display }}
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% include 'components/footer.html' %}
